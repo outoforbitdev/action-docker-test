@@ -1,5 +1,5 @@
 name: Test Action
-run-name: Testing
+run-name: Test Action
 permissions: {}
 on:
   pull_request:

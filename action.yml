@@ -10,5 +10,9 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - name: Checkout
+      uses: actions/checkout@v4
     - run: echo Path to tests= ${{inputs.tests-path}}
+      shell: bash
+    - run: docker build -t image .
       shell: bash
