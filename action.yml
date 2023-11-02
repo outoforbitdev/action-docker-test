@@ -1,9 +1,13 @@
 name: "action-docker-test"
 description: "Run a test file in a Docker container"
 inputs:
-  tests-path:
-    description: "Path to test file"
+  test-command:
+    description: "Command to execute to run tests"
     required: true
+  dockerfile-path:
+    description: "Path to the directory with the Dockerfile"
+    required: false
+    default: "."
 outputs:
   success:
     description: "Whether the test was successful"
@@ -12,14 +16,12 @@ runs:
   steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - run: echo Path to tests= ${{inputs.tests-path}}
-      shell: bash
     - name: Build image
-      run: docker build -t image .
+      run: docker build -t image ${{inputs.dockerfile-path}}
       shell: bash
     - name: Start container
       run: docker run -dit -v $(pwd):$(pwd) -w $(pwd)--name image image
       shell: bash
     - name: Run tests
-      run: docker exec image sh ./tests.sh
+      run: docker exec image ${{inputs.test-command}}
       shell: bash

@@ -26,5 +26,6 @@ jobs:
         uses: ./
         id: dockertest
         with:
-          tests-path: "./tests.sh"
+          test-command: "sh ./test.sh"
+          dockerfile-path: "."
           
