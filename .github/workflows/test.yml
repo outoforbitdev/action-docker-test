@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test Action
     outputs:
-      versionReleased: ${{steps.dockertest.outputs.success}}
+      success: ${{steps.dockertest.outputs.success}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,4 +27,7 @@ jobs:
         with:
           test-command: "sh ./test.sh"
           dockerfile-path: "."
+      - name: Output
+        run: echo ${{ steps.dockertest.outputs.success}}
+        shell: bash
           
