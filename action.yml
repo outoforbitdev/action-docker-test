@@ -10,5 +10,5 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: echo Path to tests= ${{input.tests-path}}
+    - run: echo Path to tests= ${{inputs.tests-path}}
       shell: bash
