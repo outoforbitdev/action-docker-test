@@ -14,5 +14,12 @@ runs:
       uses: actions/checkout@v4
     - run: echo Path to tests= ${{inputs.tests-path}}
       shell: bash
-    - run: docker build -t image .
+    - name: Build image
+      run: docker build -t image .
+      shell: bash
+    - name: Start container
+      run: docker run -t image image
+      shell: bash
+    - name: Run tests
+      run: docker exec image "node --version"
       shell: bash
