@@ -1,0 +1,13 @@
+name: "action-docker-test"
+description: "Run a test file in a Docker container"
+inputs:
+  tests-path:
+    description: "Path to test file"
+    required: true
+outputs:
+  success:
+    description: "Whether the test was successful"
+runs:
+  using: 'composite'
+  - run: echo "Path to tests= ${{input.tests-path}}"
+    shell: bash
