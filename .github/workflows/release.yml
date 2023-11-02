@@ -44,5 +44,4 @@ jobs:
         id: semanticrelease
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
-          dry-run: true
           
