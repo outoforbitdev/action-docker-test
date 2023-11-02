@@ -3,11 +3,11 @@
   <!-- <a href="https://github.com/outoforbitdev/action-docker-test/discussions">
     <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Join%20the%20community-on%20GitHub%20Discussions-blue">
   </a> -->
-  <a href="https://github.com/outoforbitdev/action-docker-test/actions?query=workflow%3ATest+branch%3Amaster">
-    <img alt="Release states" src="https://github.com/outoforbitdev/action-docker-test/workflows/Test/badge.svg">
+  <a href="https://github.com/outoforbitdev/action-docker-test/actions/workflows/test.yml">
+    <img alt="Test states" src="https://img.shields.io/github/actions/workflow/status/outoforbitdev/action-docker-test/test.yml?label=Tests">
   </a>
-  <a href="https://github.com/outoforbitdev/action-docker-test/actions">
-    <img alt="Test states" src="https://github.com/outoforbitdev/action-docker-test/workflows/Release/badge.svg">
+  <a href="https://github.com/outoforbitdev/action-docker-test/actions/workflows/release.yml">
+    <img alt="Release states" src="https://img.shields.io/github/actions/workflow/status/outoforbitdev/action-docker-test/release.yml?label=Release">
   </a>
   <a href="https://securityscorecards.dev/viewer/?uri=github.com/outoforbitdev/action-docker-test">
     <img alt="OpenSSF Scorecard" src="https://api.securityscorecards.dev/projects/github.com/outoforbitdev/action-docker-test/badge">
