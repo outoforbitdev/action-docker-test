@@ -19,6 +19,7 @@ runs:
       shell: bash
     - name: Start container
       run: docker run -dit --name image image
+      shell: bash
     - name: Run tests
       run: docker exec image node --version
       shell: bash
