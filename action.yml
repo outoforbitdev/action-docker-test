@@ -18,8 +18,8 @@ runs:
       run: docker build -t image .
       shell: bash
     - name: Start container
-      run: docker run -dit --name image image
+      run: docker run -dit -v $(pwd):$(pwd) -w $(pwd)--name image image
       shell: bash
     - name: Run tests
-      run: docker exec image node --version
+      run: docker exec image sh ./tests.sh
       shell: bash
