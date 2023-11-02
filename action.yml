@@ -9,5 +9,6 @@ outputs:
     description: "Whether the test was successful"
 runs:
   using: 'composite'
-  - run: echo Path to tests= ${{input.tests-path}}
-    shell: bash
+  steps:
+    - run: echo Path to tests= ${{input.tests-path}}
+      shell: bash
