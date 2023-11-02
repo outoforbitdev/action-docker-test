@@ -1,0 +1,46 @@
+name: Release Action
+run-name: Releasing
+permissions: {}
+on:
+  push:
+    branches:
+      - main
+      - beta
+      - dev
+      - staging
+jobs:
+  dockertest:
+    runs-on: ubuntu-latest
+    name: Test Action
+    outputs:
+      success: ${{steps.dockertest.outputs.success}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Docker Test
+        uses: ./
+        id: dockertest
+        with:
+          test-command: "sh ./test.sh"
+          dockerfile-path: "."
+  semantic-release:
+    runs-on: ubuntu-latest
+    name: Semantic Release
+    needs: dockertest
+    if:
+      ${{needs.dockertest.outputs.success}}
+    outputs:
+      versionReleased: ${{steps.semanticrelease.outputs.version-released}}
+      version: ${{steps.semanticrelease.outputs.next-version}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Semantic Release
+        uses: outoforbitdev/action-semantic-release@v1.3.4
+        id: semanticrelease
+        with:
+          github-token: ${{ secrets.RELEASE_TOKEN }}
+          dry-run: true
+          
