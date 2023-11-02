@@ -25,3 +25,6 @@ runs:
     - name: Run tests
       run: docker exec image ${{inputs.test-command}}
       shell: bash
+    - name: Set output
+      run: echo success=true >> $GITHUB_OUTPUT
+      shell: bash
