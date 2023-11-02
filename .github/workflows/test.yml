@@ -27,4 +27,7 @@ jobs:
         with:
           test-command: "sh ./test.sh"
           dockerfile-path: "."
+      - name: Output
+        run: echo ${{ steps.dockertest.outputs.success}}
+        shell: bash
           
