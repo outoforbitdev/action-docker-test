@@ -17,9 +17,6 @@ runs:
     - name: Build image
       run: docker build -t image .
       shell: bash
-    - name: Start container
-      run: docker run -t image image
-      shell: bash
     - name: Run tests
-      run: docker exec image "node --version"
+      run: docker run image "node --version"
       shell: bash
