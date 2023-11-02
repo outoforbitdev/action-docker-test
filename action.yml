@@ -20,7 +20,7 @@ runs:
       run: docker build -t image ${{inputs.dockerfile-path}}
       shell: bash
     - name: Start container
-      run: docker run -dit -v $(pwd):$(pwd) -w $(pwd)--name image image
+      run: docker run -dit -v $(pwd):$(pwd) -w $(pwd) --name image image
       shell: bash
     - name: Run tests
       run: docker exec image ${{inputs.test-command}}
