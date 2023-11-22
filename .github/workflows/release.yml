@@ -8,7 +8,7 @@ on:
       - dev
       - staging
 jobs:
-  dockertest:
+  test:
     runs-on: ubuntu-latest
     name: Test Action
     outputs:
@@ -25,21 +25,30 @@ jobs:
       - name: Output
         run: echo ${{ steps.dockertest.outputs.success}}
         shell: bash
-  semantic-release:
+  release:
     runs-on: ubuntu-latest
-    name: Semantic Release
-    needs: dockertest
-    if: ${{needs.dockertest.outputs.success}}
-    outputs:
-      versionReleased: ${{steps.semanticrelease.outputs.version-released}}
-      version: ${{steps.semanticrelease.outputs.next-version}}
+    name: Release Action
+    needs: test
+    if: ${{ needs.test.outputs.success }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Semantic Release
-        uses: outoforbitdev/action-semantic-release@v1.3.5
-        id: semanticrelease
+      - name: Release Action
+        uses: outoforbitdev/action-semantic-release@v1.4.3-staging.2
+        id: semantic-release
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
+          skip-changelog: ${{ github.ref_name != 'main' }}
+      - name: Summarize Versions
+        env:
+          LAST_VERSION: ${{ steps.semantic-release.outputs.last-version }}
+          NEXT_VERSION: ${{ steps.semantic-release.outputs.next-version }}
+          VERSION_RELEASED: >-
+            ${{ steps.semantic-release.outputs.version-released}}
+        run: >-
+          echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY;
+          echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY;
+          echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY;
+          echo "* Version released - $VERSION_RELEASED" >> $GITHUB_STEP_SUMMARY
