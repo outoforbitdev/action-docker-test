@@ -2,7 +2,7 @@ name: Test Action
 permissions: {}
 on:
   pull_request:
-    types: 
+    types:
       - opened
       - reopened
       - synchronize
@@ -30,4 +30,3 @@ jobs:
       - name: Output
         run: echo ${{ steps.dockertest.outputs.success}}
         shell: bash
-          
