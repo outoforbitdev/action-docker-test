@@ -23,6 +23,7 @@ runs:
       uses: actions/checkout@v4
     - name: Generate unique name
       run: echo "TAG=$(uuidgen)" >> "$GITHUB_ENV"
+      shell: bash
     - name: Build image
       run: ${{ inputs.build-command }} -t ${TAG} ${{ inputs.dockerfile-path }}
       shell: bash
