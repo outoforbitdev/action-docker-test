@@ -1,4 +1,5 @@
 # action-docker-test
+
 <p align="center">
   <!-- <a href="https://github.com/outoforbitdev/action-docker-test/discussions">
     <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Join%20the%20community-on%20GitHub%20Discussions-blue">
@@ -26,27 +27,28 @@ GitHub Action for running a test script in a Docker container.
 
 ### Inputs
 
-* `tests-path`: Required. The path to the bash script that should be run in the container.
+- `tests-path`: Required. The path to the bash script that should be run in the container.
 
 ### Outputs
 
-* `success`: Whether the tests were successful
+- `success`: Whether the tests were successful
 
 ### Example
-```
+
+```yml
 docker-test:
-    runs-on: ubuntu-latest
-    name: Docker Test
-    outputs:
-        success: ${{steps.dockertest.outputs.success}}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Docker Test
-        uses: outoforbitdev/action-docker-test@v1.0.0
-        id: dockertest
-        with:
-          tests-path: ./tests.sh
-      - name: Output version
-        run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
+  runs-on: ubuntu-latest
+  name: Docker Test
+  outputs:
+    success: ${{steps.dockertest.outputs.success}}
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Docker Test
+      uses: outoforbitdev/action-docker-test@v1.0.0
+      id: dockertest
+      with:
+        tests-path: ./tests.sh
+    - name: Output version
+      run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
 ```

@@ -29,8 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Semantic Release
     needs: dockertest
-    if:
-      ${{needs.dockertest.outputs.success}}
+    if: ${{needs.dockertest.outputs.success}}
     outputs:
       versionReleased: ${{steps.semanticrelease.outputs.version-released}}
       version: ${{steps.semanticrelease.outputs.next-version}}
@@ -44,4 +43,3 @@ jobs:
         id: semanticrelease
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
-          
