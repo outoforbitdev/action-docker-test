@@ -21,14 +21,16 @@ runs:
   steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Generate unique name
+      run: echo "TAG=$(uuidgen)" >> "$GITHUB_ENV"
     - name: Build image
-      run: ${{ inputs.build-command }} -t image ${{ inputs.dockerfile-path }}
+      run: ${{ inputs.build-command }} -t ${TAG} ${{ inputs.dockerfile-path }}
       shell: bash
     - name: Start container
-      run: docker run -dit -v $(pwd):$(pwd) -w $(pwd) --name image image
+      run: docker run -dit -v $(pwd):$(pwd) -w $(pwd) --name ${TAG} ${TAG}
       shell: bash
     - name: Run tests
-      run: docker exec image ${{inputs.test-command}}
+      run: docker exec ${TAG} ${{inputs.test-command}}
       shell: bash
     - name: Set output
       id: set-output
