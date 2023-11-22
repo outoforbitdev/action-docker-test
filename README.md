@@ -27,7 +27,12 @@ GitHub Action for running a test script in a Docker container.
 
 ### Inputs
 
-- `tests-path`: Required. The path to the bash script that should be run in the container.
+- `tests-path`: Required.
+  The path to the bash script that should be run in the container
+- `dockerfile-path`: Optional.
+  Path to the directory with the Dockerfile. Defaults to "."
+- `build-command`: Optional.
+  Full command to build the image. Defaults to "docker build"
 
 ### Outputs
 
@@ -49,6 +54,7 @@ docker-test:
       id: dockertest
       with:
         tests-path: ./tests.sh
+        build-command: "docker build --build-arg EXAMPLE_ARG='example'"
     - name: Output version
       run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
 ```
