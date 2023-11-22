@@ -1,6 +1,6 @@
 {
-  "name": "canary-dotnet-reactapp",
-  "repository": "https://github.com/outoforbitdev/canary-dotnet-reactapp.git",
+  "name": "action-docker-test",
+  "repository": "https://github.com/outoforbitdev/action-docker-test.git",
   "author": "Jay Mirecki <outoforbitdev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
