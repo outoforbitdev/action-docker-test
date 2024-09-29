@@ -24,7 +24,7 @@
     chalk "^2.4.2"
     js-tokens "^4.0.0"
 
-"@commitlint/cli@^19.4.1", "@commitlint/cli@^19.5.0":
+"@commitlint/cli@^19.5.0":
   version "19.5.0"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-19.5.0.tgz#a6e2f7f8397ddf9abd5ee5870e30a1bf51b7be2b"
   integrity sha512-gaGqSliGwB86MDmAAKAtV9SV1SHdmN8pnGq4EJU4+hLisQ7IFfx4jvU4s+pk6tl0+9bv6yT+CaZkufOinkSJIQ==
@@ -292,13 +292,13 @@ color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-commitlint@^19.4.1:
-  version "19.4.1"
-  resolved "https://registry.yarnpkg.com/commitlint/-/commitlint-19.4.1.tgz#b20f52982b12a083f610ad546c40d5793b7de021"
-  integrity sha512-w9PRvPad1ywVXl4QuS/OA9kzyoyW68dIpaxTdezpr1ycZeYkBRUHRQMmtL5rSYw1JytktojaKEBuvf1neDmeCg==
+commitlint@^19.5.0:
+  version "19.5.0"
+  resolved "https://registry.yarnpkg.com/commitlint/-/commitlint-19.5.0.tgz#64afe152e3d3537f4765ead1a587ea726264cc81"
+  integrity sha512-lCtwxgFulvMnCgBc8MVPlVMf+PNOqQSBhHpEnjV2JjEQEAhxjVDtC7IeuEtR+hHpGvHt6CwlLtm3uZNyEby5dQ==
   dependencies:
-    "@commitlint/cli" "^19.4.1"
-    "@commitlint/types" "^19.0.3"
+    "@commitlint/cli" "^19.5.0"
+    "@commitlint/types" "^19.5.0"
 
 compare-func@^2.0.0:
   version "2.0.0"
