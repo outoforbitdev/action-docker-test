@@ -1,5 +1,10 @@
 # action-docker-test
 
+> **Retired.** This action has been superseded by
+> [`reusable-workflows-library`](https://github.com/outoforbitdev/reusable-workflows-library)'s
+> `test-docker.yml` reusable workflow. This repository is archived and kept
+> for historical reference only.
+
 <p align="center">
   <!-- <a href="https://github.com/outoforbitdev/action-docker-test/discussions">
     <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Join%20the%20community-on%20GitHub%20Discussions-blue">
